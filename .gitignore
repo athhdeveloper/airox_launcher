@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea
+/libAiroxLauncher/src/test
+/gradle
+*.bat
+gradlew
