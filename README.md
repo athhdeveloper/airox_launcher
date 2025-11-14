@@ -1,2 +1,2 @@
-# airox_launcher
+# Airox Launcher
 Airox Launcher application
