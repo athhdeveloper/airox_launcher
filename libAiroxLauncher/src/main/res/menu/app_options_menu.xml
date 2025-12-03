@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item
+        android:id="@+id/menu_move_to_page"
+        android:title="Move to Page"
+        android:icon="@android:drawable/ic_menu_more" />
+    
+    <item
+        android:id="@+id/menu_create_folder"
+        android:title="Create Folder"
+        android:icon="@android:drawable/ic_menu_add" />
+    
+    <item
+        android:id="@+id/menu_app_info"
+        android:title="App Info"
+        android:icon="@android:drawable/ic_menu_info_details" />
+    
+    <item
+        android:id="@+id/menu_remove_from_home"
+        android:title="Remove from Home"
+        android:icon="@android:drawable/ic_menu_delete" />
+    
+    <item
+        android:id="@+id/menu_uninstall"
+        android:title="Uninstall"
+        android:icon="@android:drawable/ic_menu_delete" />
+    
+</menu>
+

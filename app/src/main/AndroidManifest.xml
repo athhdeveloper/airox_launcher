@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions for launcher functionality -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="PackageVisibilityPolicy" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,15 +22,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AiroxLauncher">
+
+        <!-- Main Launcher Activity - Home Screen -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.lib.airox.launcher.activity.LauncherActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/LauncherTheme"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+
+        <!-- App Drawer Activity -->
+        <activity
+            android:name="com.lib.airox.launcher.activity.AppDrawerActivity"
+            android:exported="false"
+            android:theme="@style/LauncherTheme" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.lib.airox.launcher.activity.SettingsActivity"
+            android:exported="false"
+            android:label="Launcher Settings"
+            android:parentActivityName="com.lib.airox.launcher.activity.LauncherActivity"
+            android:theme="@style/LauncherTheme" />
+
+        <!-- Keep MainActivity for backward compatibility (optional) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

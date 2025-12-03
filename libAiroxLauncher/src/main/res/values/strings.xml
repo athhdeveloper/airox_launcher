@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Airox Launcher</string>
+    <string name="all_apps">All Apps</string>
+    <string name="search_apps">Search apps…</string>
+    <string name="launcher_settings">Launcher Settings</string>
+    <string name="show_system_apps">Show System Apps</string>
+    <string name="sort_apps_by">Sort Apps By</string>
+    <string name="sort_by_name">Name</string>
+    <string name="sort_by_date">Install Date</string>
+    <string name="grid_columns">Grid Columns</string>
+    <string name="app_drawer">App Drawer</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
+

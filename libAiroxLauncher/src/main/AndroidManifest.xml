@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="PackageVisibilityPolicy" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+
+    <application>
+        <activity
+            android:name=".activity.LauncherActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/LauncherTheme"
+            android:windowSoftInputMode="adjustPan" />
+
+
+        <activity
+            android:name=".activity.AppDrawerActivity"
+            android:exported="false"
+            android:theme="@style/LauncherTheme" />
+
+
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:exported="false"
+            android:label="Launcher Settings"
+            android:parentActivityName=".activity.LauncherActivity"
+            android:theme="@style/LauncherTheme" />
+    </application>
 
 </manifest>
