@@ -1,4 +1,4 @@
-package com.lib.airox.launcher.ui.adapter
+package com.lib.airox.launcher.adapter
 
 import android.view.LayoutInflater
 import android.view.View

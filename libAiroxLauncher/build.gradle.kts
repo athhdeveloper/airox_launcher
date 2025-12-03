@@ -50,5 +50,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.monitor)
     implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.constraintlayout.compose)
     testImplementation(kotlin("test"))
 }

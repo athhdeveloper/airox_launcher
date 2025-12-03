@@ -1,6 +1,8 @@
-package com.lib.airox.launcher.ui.adapter
+package com.lib.airox.launcher.adapter
 
+import android.graphics.Canvas
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -15,11 +17,11 @@ class HomeScreenPagerAdapter(
     private val iconSize: Int,
     private val preferences: LauncherPreferences,
     private val onAppClick: (AppInfo) -> Unit,
-    private val onAppLongPress: (AppInfo, android.view.View) -> Unit,
+    private val onAppLongPress: (AppInfo, View) -> Unit,
     private val onAppPositionChanged: (Int, Int, Int) -> Unit,
     private val onAppMoveToPage: (Int, Int, Int) -> Unit,
     private val onPageSwitchRequest: (Int) -> Unit,
-    private val onPageLongPress: ((Int, android.view.View) -> Unit)? = null,
+    private val onPageLongPress: ((Int, View) -> Unit)? = null,
 ) : RecyclerView.Adapter<HomeScreenPagerAdapter.PageViewHolder>() {
 
     private val pageAdapters = mutableMapOf<Int, DraggableAppGridAdapter>()
@@ -125,7 +127,7 @@ class HomeScreenPagerAdapter(
             private var targetPageForDrag: Int? = null
 
             override fun onChildDraw(
-                c: android.graphics.Canvas,
+                c: Canvas,
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 dX: Float,

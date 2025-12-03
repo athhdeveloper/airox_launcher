@@ -1,5 +1,6 @@
 package com.lib.airox.launcher.fragment
 
+import android.R.attr.startY
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,13 +12,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.lib.airox.launcher.R
+import com.lib.airox.launcher.activity.LauncherActivity
 import com.lib.airox.launcher.databinding.FragmentAppDrawerBinding
 import com.lib.airox.launcher.model.AppInfo
 import com.lib.airox.launcher.model.LauncherPreferences
 import com.lib.airox.launcher.repository.AppRepository
-import com.lib.airox.launcher.ui.adapter.AppAdapter
+import com.lib.airox.launcher.adapter.AppAdapter
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 
@@ -58,8 +58,9 @@ class FragmentAppDrawer : Fragment() {
     }
 
     private fun setupSwipeGesture() {
-        val gestureDetector =
-            GestureDetector(requireContext(), object : GestureDetector.SimpleOnGestureListener() {
+        val gestureDetector = GestureDetector(
+            requireContext(),
+            object : GestureDetector.SimpleOnGestureListener() {
                 override fun onFling(
                     e1: MotionEvent?,
                     e2: MotionEvent,
@@ -67,11 +68,11 @@ class FragmentAppDrawer : Fragment() {
                     velocityY: Float,
                 ): Boolean {
                     if (e1 != null) {
-                        val deltaY = e1.y - e2.y
-                        val deltaX = abs(e1.x - e2.x)
+                        val deltaY = e2.y - e1.y
+                        val deltaX = kotlin.math.abs(e2.x - e1.x)
 
-                        // Swipe down to hide drawer (from anywhere in fragment)
-                        if (deltaY < -100 && abs(velocityY) > 500 && deltaX < 200) {
+                        // Swipe DOWN to close drawer
+                        if (deltaY > 120 && kotlin.math.abs(velocityY) > 500 && deltaX < 200) {
                             exitDrawer()
                             return true
                         }
@@ -80,7 +81,6 @@ class FragmentAppDrawer : Fragment() {
                 }
             })
 
-        // Set touch listener on root and recycler view
         binding.root.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
             false
@@ -173,5 +173,4 @@ class FragmentAppDrawer : Fragment() {
         _binding = null
 
     }
-
 }

@@ -6,28 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".activity.LauncherActivity">
 
-    <ImageView
-        android:id="@+id/wallpaper_background"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/home_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <FrameLayout
+            android:id="@+id/wallpaper_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-    <!-- Page Indicators -->
+        <FrameLayout
+            android:id="@+id/home_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:elevation="200dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/page_indicators"
         android:layout_width="wrap_content"
@@ -40,7 +57,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <!-- Bottom Bar (Hidden by default, shown when settings clicked) -->
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
@@ -97,16 +113,5 @@
 
     </LinearLayout>
 
-    <!-- Fragment Container for App Drawer -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="10dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
